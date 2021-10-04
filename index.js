@@ -30,14 +30,14 @@ function parseLink(link) {
     var m         =  link.match(/<?([^>]*)>(.*)/)
       , linkUrl   =  m[1]
       , parts     =  m[2].split(';')
-      , parsedUrl =  url.parse(linkUrl)
-      , qry       =  qs.parse(parsedUrl.query);
+      , parsedUrl =  url.parse(linkUrl) // Tightly coupled with browser/url.js
+      , qry       =  qs.parse(parsedUrl.query);  // Tightly coupled with browser/querystring.js
 
     parts.shift();
 
     var info = parts
       .reduce(createObjects, {});
-    
+
     info = xtend(qry, info);
     info.url = linkUrl;
     return info;

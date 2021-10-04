@@ -36,6 +36,10 @@
   "engine": {
     "node": ">=0.6"
   },
+  "browser": {
+    "url": "browser/url.js",
+    "querystring": "browser/querystring.js"
+  },
   "testling": {
     "files": "test/*.js",
     "browsers": [
